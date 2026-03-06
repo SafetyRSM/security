@@ -8,9 +8,19 @@
 </head>
 
 <body>
-  <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;border: 0;" 
-          src="https://script.google.com/macros/s/AKfycbxPSWuawZk4S50CJ23si3QPZiVwx62WRus-G8BwRs2hTTrQBC6Nd_e_qdaa8TiY0HUzrg/exec"
+  <iframe id="appFrame" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;border: 0;" 
           allow="camera *; geolocation *; microphone *">
   </iframe>
+
+  <script>
+    // 1. ดึงพารามิเตอร์จาก URL ปัจจุบัน (เช่น ?cp=xxx)
+    var queryString = window.location.search;
+    
+    // 2. ลิงก์ Web App ต้นฉบับของคุณ
+    var scriptUrl = "https://script.google.com/macros/s/AKfycbxPSWuawZk4S50CJ23si3QPZiVwx62WRus-G8BwRs2hTTrQBC6Nd_e_qdaa8TiY0HUzrg/exec";
+    
+    // 3. นำมาต่อกัน แล้วสั่งให้ iframe เปิดลิงก์นั้น
+    document.getElementById("appFrame").src = scriptUrl + queryString;
+  </script>
 </body>
 </html>
